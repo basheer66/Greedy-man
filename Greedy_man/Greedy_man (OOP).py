@@ -2,6 +2,7 @@ import pygame, sys, os
 import random
 import math
 pygame.init()
+
 WHITE = (240, 240, 240)
 RED = (240, 0, 0)
 BLUE = (122, 0, 0)
@@ -9,6 +10,8 @@ GREEN = (0, 240, 0)
 BOT_SPEED = 0.040
 PLAYER_SPEED = 0.080
 WIDTH, HIGHT = 600, 400
+# TIME = pygame.clock
+
 
 man = pygame.transform.scale(pygame.image.load(os.path.join("imgs", "theman.png")),(32,32))
 man2 = pygame.transform.scale(pygame.image.load(os.path.join("imgs", "man2.png")),(32,32))
@@ -17,11 +20,13 @@ weapon1 = pygame.transform.scale(pygame.image.load(os.path.join("imgs", "knive.p
 background = pygame.transform.scale(pygame.image.load(os.path.join("imgs", "grass.png")),(600,400))
 
 
+
 #Screen set
 pygame.display.set_caption("Greedy man By Basheer")
 pygame.display.set_icon(man)
 screen = pygame.display.set_mode((WIDTH, HIGHT))
 font1 = pygame.font.Font(os.path.join("imgs", "FreeSansBold.ttf"), 20)
+pygame.mouse.set_cursor(pygame.cursors.arrow)
 
 class Main:
     #Man1 (player)
@@ -58,7 +63,18 @@ class Main:
         if keys[pygame.K_DOWN]:
             if self.y + self.speed <= 380:
                 self.y += self.speed
-   
+        
+        # mouse movement
+        if pygame.mouse.get_pos()[0] < self.x:
+            self.x -= PLAYER_SPEED
+        elif pygame.mouse.get_pos()[0] > self.x:
+            self.x += PLAYER_SPEED
+        if pygame.mouse.get_pos()[1] < self.y:
+            self.y -= PLAYER_SPEED
+        elif pygame.mouse.get_pos()[1] > self.y:
+            self.y += PLAYER_SPEED
+
+
     def look_load(self, image):
         self.image = image
         screen.blit(self.image, (self.x, self.y))
