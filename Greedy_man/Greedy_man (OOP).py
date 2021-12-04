@@ -65,14 +65,14 @@ class Main:
                 self.y += self.speed
         
         # mouse movement
-        if pygame.mouse.get_pos()[0] < self.x:
-            self.x -= PLAYER_SPEED
-        elif pygame.mouse.get_pos()[0] > self.x:
-            self.x += PLAYER_SPEED
-        if pygame.mouse.get_pos()[1] < self.y:
-            self.y -= PLAYER_SPEED
-        elif pygame.mouse.get_pos()[1] > self.y:
-            self.y += PLAYER_SPEED
+            # if pygame.mouse.get_pos()[0] < self.x:
+            #     self.x -= PLAYER_SPEED
+            # elif pygame.mouse.get_pos()[0] > self.x:
+            #     self.x += PLAYER_SPEED
+            # if pygame.mouse.get_pos()[1] < self.y:
+            #     self.y -= PLAYER_SPEED
+            # elif pygame.mouse.get_pos()[1] > self.y:
+            #     self.y += PLAYER_SPEED
 
 
     def look_load(self, image):
