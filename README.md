@@ -2,6 +2,7 @@
 My first game ever using Pygame, I used this game to learn Pygame.
 
 How to run:
+
 1 - Install pygame by typing (pip install pygame)
 if it dosent work use (python -m install pygame)
 
